@@ -1,8 +1,1182 @@
-openapi: 3.0.3
+openapi: 3.0.0
 info:
-  title: 'Trendloom'
-  description: 'Description of the Trendloom API'
-  version: 0.0.1
-servers:
-  - url: http://localhost:8080/
-    description: 'Local API'
+  title: Trendloom Webshop API
+  version: 1.0.0
+  description: API documentation for the Trendloom webshop
+
+paths:
+  /translations:
+    get:
+      summary: Get translations
+      responses:
+        '200':
+          description: Successful response
+
+  /brands:
+    get:
+      summary: Get all brands
+      responses:
+        '200':
+          description: Successful response
+
+  /brands/{id}:
+    get:
+      summary: Get a brand by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /brands/{id}/products:
+    get:
+      summary: Get products by brand ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /categories:
+    get:
+      summary: Get all categories
+      responses:
+        '200':
+          description: Successful response
+
+  /categories/{id}:
+    get:
+      summary: Get a category by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /categories/{id}/products:
+    get:
+      summary: Get products by category ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /products:
+    get:
+      summary: Get all products
+      responses:
+        '200':
+          description: Successful response
+
+  /products/{id}:
+    get:
+      summary: Get a product by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /customers:
+    post:
+      summary: Create a new customer
+      responses:
+        '200':
+          description: Successful response
+
+  /brand-coupons:
+    get:
+      summary: Get all brand coupons
+      responses:
+        '200':
+          description: Successful response
+
+  /brand-coupons/{id}:
+    get:
+      summary: Get a brand coupon by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /brand-languages:
+    get:
+      summary: Get all brand languages
+      responses:
+        '200':
+          description: Successful response
+
+  /brand-languages/{id}:
+    get:
+      summary: Get a brand language by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand language
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /category-coupons:
+    get:
+      summary: Get all category coupons
+      responses:
+        '200':
+          description: Successful response
+
+  /category-coupons/{id}:
+    get:
+      summary: Get a category coupon by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /category-languages:
+    get:
+      summary: Get all category languages
+      responses:
+        '200':
+          description: Successful response
+
+  /category-languages/{id}:
+    get:
+      summary: Get a category language by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category language
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /category-media:
+    get:
+      summary: Get all category media
+      responses:
+        '200':
+          description: Successful response
+
+  /category-media/{id}:
+    get:
+      summary: Get a category media by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category media
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /coupons:
+    get:
+      summary: Get all coupons
+      responses:
+        '200':
+          description: Successful response
+
+  /coupons/{id}:
+    get:
+      summary: Get a coupon by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /languages:
+    get:
+      summary: Get all languages
+      responses:
+        '200':
+          description: Successful response
+
+  /languages/{id}:
+    get:
+      summary: Get a language by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the language
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /product-languages:
+    get:
+      summary: Get all product languages
+      responses:
+        '200':
+          description: Successful response
+
+  /product-languages/{id}:
+    get:
+      summary: Get a product language by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product language
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /product-media:
+    get:
+      summary: Get all product media
+      responses:
+        '200':
+          description: Successful response
+
+  /product-media/{id}:
+    get:
+      summary: Get a product media by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product media
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /product-coupons:
+    get:
+      summary: Get all product coupons
+      responses:
+        '200':
+          description: Successful response
+
+  /product-coupons/{id}:
+    get:
+      summary: Get a product coupon by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /product-sizes:
+    get:
+      summary: Get all product sizes
+      responses:
+        '200':
+          description: Successful response
+
+  /product-sizes/product/{id}:
+    get:
+      summary: Get all product sizes by product ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /product-sizes/{id}:
+    get:
+      summary: Get a product size by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product size
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /product-stock:
+    get:
+      summary: Get all product stocks
+      responses:
+        '200':
+          description: Successful response
+
+  /product-stock/{id}:
+    get:
+      summary: Get product stock by product ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /register:
+    post:
+      summary: Register a new user
+      responses:
+        '200':
+          description: Successful response
+
+  /login:
+    post:
+      summary: Log in
+      responses:
+        '200':
+          description: Successful response
+
+  /profile:
+    get:
+      summary: Get user profile
+      responses:
+        '200':
+          description: Successful response
+
+  /refresh:
+    get:
+      summary: Refresh token
+      responses:
+        '200':
+          description: Successful response
+
+  /logout:
+    get:
+      summary: Log out
+      responses:
+        '200':
+          description: Successful response
+
+  /customers/{id}:
+    get:
+      summary: Get a customer by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the customer
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /customers/{id}/addresses:
+    get:
+      summary: Get addresses by customer ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the customer
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /customers/{id}/orders:
+    get:
+      summary: Get orders by customer ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the customer
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /customers/{id}/wishlist/products:
+    get:
+      summary: Get wishlist products by customer ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the customer
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /customers/{id}:
+    put:
+      summary: Update customer details
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the customer
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /customers/{id}:
+    delete:
+      summary: Delete a customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the customer
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /addresses/{id}:
+    get:
+      summary: Get an address by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the address
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /addresses:
+    post:
+      summary: Create a new address
+      responses:
+        '200':
+          description: Successful response
+
+  /addresses/{id}:
+    put:
+      summary: Update an address
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the address
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /addresses/{id}:
+    delete:
+      summary: Delete an address
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the address
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /orders/{id}:
+    get:
+      summary: Get an order by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the order
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /orders/{id}/order-items:
+    get:
+      summary: Get order items by order ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the order
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /orders:
+    post:
+      summary: Create a new order
+      responses:
+        '200':
+          description: Successful response
+
+  /orders/{id}:
+    put:
+      summary: Update an order
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the order
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /orders/{id}/cancel:
+    put:
+      summary: Cancel an order
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the order
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /order-items/{id}:
+    get:
+      summary: Get an order item by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the order item
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /order-items:
+    post:
+      summary: Create a new order item
+      responses:
+        '200':
+          description: Successful response
+
+  /order-items/{orderItemId}:
+    put:
+      summary: Update an order item
+      parameters:
+        - name: orderItemId
+          in: path
+          required: true
+          description: ID of the order item
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /order-items/{orderItemId}:
+    delete:
+      summary: Delete an order item
+      parameters:
+        - name: orderItemId
+          in: path
+          required: true
+          description: ID of the order item
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /wishlists/{id}:
+    get:
+      summary: Get a wishlist by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wishlist
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /wishlists:
+    post:
+      summary: Create a new wishlist
+      responses:
+        '200':
+          description: Successful response
+
+  /wishlists/{id}:
+    put:
+      summary: Update a wishlist
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wishlist
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /wishlists/{id}:
+    delete:
+      summary: Delete a wishlist
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the wishlist
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/customers:
+    get:
+      summary: Get all customers (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/addresses:
+    get:
+      summary: Get all addresses (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/roles:
+    get:
+      summary: Get all roles (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/roles/{id}:
+    get:
+      summary: Get a role by ID (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the role
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/roles:
+    post:
+      summary: Create a new role (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/roles/{id}:
+    put:
+      summary: Update a role (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the role
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/roles/{id}:
+    delete:
+      summary: Delete a role (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the role
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/orders:
+    get:
+      summary: Get all orders (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brands:
+    post:
+      summary: Create a new brand (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brands/{id}:
+    put:
+      summary: Update a brand (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brands/{id}:
+    delete:
+      summary: Delete a brand (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brand-coupons:
+    post:
+      summary: Create a new brand coupon (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brand-coupons/{id}:
+    put:
+      summary: Update a brand coupon (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brand-coupons/{id}:
+    delete:
+      summary: Delete a brand coupon (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brand-languages:
+    post:
+      summary: Create a new brand language (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brand-languages/{id}:
+    put:
+      summary: Update a brand language (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand language
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brand-languages/{id}:
+    delete:
+      summary: Delete a brand language (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand language
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/categories:
+    post:
+      summary: Create a new category (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/categories/{id}:
+    put:
+      summary: Update a category (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/categories/{id}:
+    delete:
+      summary: Delete a category (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/category-coupons/{id}:
+    get:
+      summary: Get a category coupon by ID (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+    
+  /admin/category-languages:
+    get:
+      summary: Get all category languages (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/category-languages/{id}:
+    get:
+      summary: Get a category language by ID (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category language
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/category-media:
+    get:
+      summary: Get all category media (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/category-media/{id}:
+    get:
+      summary: Get a category media by ID (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the category media
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brands:
+    get:
+      summary: Get all brands (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/brands/{id}:
+    get:
+      summary: Get a brand by ID (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the brand
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/products:
+    post:
+      summary: Create a new product (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/products/{id}:
+    put:
+      summary: Update a product (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/products/{id}:
+    delete:
+      summary: Delete a product (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-sizes:
+    post:
+      summary: Create a new product size (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-sizes/{id}:
+    put:
+      summary: Update a product size (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product size
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-sizes/{id}:
+    delete:
+      summary: Delete a product size (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product size
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-media:
+    post:
+      summary: Create a new product media (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-media/{id}:
+    put:
+      summary: Update a product media (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product media
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-media/{id}:
+    delete:
+      summary: Delete a product media (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product media
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-coupons:
+    post:
+      summary: Create a new product coupon (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-coupons/{id}:
+    put:
+      summary: Update a product coupon (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-coupons/{id}:
+    delete:
+      summary: Delete a product coupon (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product coupon
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-stock:
+    post:
+      summary: Create a new product stock (admin only)
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-stock/{id}:
+    put:
+      summary: Update a product stock (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product stock
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/product-stock/{id}:
+    delete:
+      summary: Delete a product stock (admin only)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the product stock
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+
+  /admin/wishlists:
+    get:
+      summary: Get all wishlists (admin only)
+      responses:
+        '200':
+          description: Successful response
