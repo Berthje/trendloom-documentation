@@ -181,10 +181,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/BrandCoupon'
             tags:
                 - BrandCoupons
 
@@ -201,10 +197,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/BrandCoupon'
             tags:
                 - BrandCoupons
 
@@ -247,10 +239,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CategoryCoupon'
             tags:
                 - CategoryCoupons
 
@@ -267,10 +255,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CategoryCoupon'
             tags:
                 - CategoryCoupons
 
@@ -346,10 +330,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Coupon'
             tags:
                 - Coupons
 
@@ -366,10 +346,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/Coupon'
             tags:
                 - Coupons
 
@@ -1681,3 +1657,37 @@ components:
                 type: array
                 items:
                     $ref: '#/components/schemas/Stock'
+    Customer:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 1
+            first_name:
+                type: string
+                example: "Layton"
+            last_name:
+                type: string
+                example: "Berth"
+            email:
+                type: string
+                example: "laytonbrth@gmail.com"
+            phone_number:
+                type: string
+                example: "+32468321819"
+            preferred_locale:
+                type: string
+                example: "en"
+            address_id:
+                type: integer
+                example: 1
+            is_admin:
+                type: boolean
+                example: true
+            address:
+                $ref: '#/components/schemas/Address'
+            roles:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Role'
+    
