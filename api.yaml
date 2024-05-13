@@ -16,7 +16,10 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/translation'
+                                type: object
+                                properties:
+                                    nl:
+                                        $ref: '#/components/schemas/Language'
             tags:
                 - Translations
 
@@ -1354,32 +1357,14 @@ paths:
                     description: Successful response
             tags:
                 - Admin/Wishlists
+
 components:
   schemas:
-    translation:
+    Language:
       type: object
-      properties:
-        id:
-          type: integer
-          minimum: 1
-          example: 45
-        serviceTag:
-          type: string
-          x-faker: lorem.sentence
-          example: "80042-231-94393"
-        dateOfPurchase:
-          type: string
-          example: "20/02/2084"
-        active:
-          type: boolean
-          example: true
-      required:
-        - id
-        - serviceTag
-        - dateOfPurchase
-        - active
+      additionalProperties:
+        type: string
       example:
-        id: 45
-        serviceTag: 80042-231-94393
-        dateOfPurchase: 20/02/2084
-        active: true
+        free_shipping_offer: "GRATIS VERZENDING OP ALLE T-SHIRTS"
+        explore_summer_styles: "Ontdek stijlen klaar voor de zomerdag"
+        summers_wanted: "GEWILD IN DE ZOMER"
