@@ -454,10 +454,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/ProductCoupon'
             tags:
                 - ProductCoupons
 
@@ -474,10 +470,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/ProductCoupon'
             tags:
                 - ProductCoupons
 
@@ -1748,4 +1740,165 @@ components:
                 example: "/images/categories/men.webp"
             category:
                 $ref: '#/components/schemas/Category'
+    Category:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 1
+            name:
+                type: string
+                example: "Women"
+            description:
+                type: string
+                example: "Fashionable attire for women."
+            parent_category_id:
+                type: integer
+                example: null
+            code:
+                type: string
+                example: "en"
+            parent:
+                type: 'null'
+            media:
+                $ref: '#/components/schemas/CategoryMedia'
+    ProductLanguage:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 1
+            product_id:
+                type: integer
+                example: 1
+            language_id:
+                type: integer
+                example: 1
+            name:
+                type: string
+                example: "Air Max 270"
+            description:
+                type: string
+                example: "Step into the future with Nike's Air Max 270 shoes. These shoes offer a blend of comfort and style with their large Air Max unit and sleek design. Perfect for both sports and casual wear, they're a must-have addition to your shoe collection."
+            price:
+                type: string
+                example: "149.99"
+            tags:
+                type: string
+                example: "[\"Nike\",\"Shoes\",\"Sportswear\"]"
+            product:
+                $ref: '#/components/schemas/Product'
+            language:
+                $ref: '#/components/schemas/Language'
+    ProductMedia:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 1
+            product_id:
+                type: integer
+                example: 1
+            image_url:
+                type: string
+                example: "/images/products/nike/NIKE-270/air-max-270-1.webp"
+            is_primary:
+                type: integer
+                example: 1
+            product:
+                $ref: '#/components/schemas/Product'
+    ProductSize:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 1
+            product_id:
+                type: integer
+                example: 1
+            size:
+                type: string
+                example: "41"
+            product:
+                $ref: '#/components/schemas/Product'
+    ProductSizeOnly:
+        type: array
+        items:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    example: 1
+                product_id:
+                    type: integer
+                    example: 1
+                size:
+                    type: string
+                    example: "41"
+    ProductStock:
+        type: array
+        items:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    example: 1
+                product_id:
+                    type: integer
+                    example: 1
+                size_id:
+                    type: integer
+                    example: 1
+                quantity_in_stock:
+                    type: integer
+                    example: 18
+    Profile:
+        type: object
+        properties:
+            status:
+                type: boolean
+                example: true
+            message:
+                type: string
+                example: "Profile data"
+            data:
+                type: object
+                properties:
+                    id:
+                        type: integer
+                        example: 1
+                    first_name:
+                        type: string
+                        example: "Layton"
+                    last_name:
+                        type: string
+                        example: "Berth"
+                    email:
+                        type: string
+                        example: "laytonbrth@gmail.com"
+                    phone_number:
+                        type: string
+                        example: "+32468321819"
+                    preferred_locale:
+                        type: string
+                        example: "en"
+                    address_id:
+                        type: integer
+                        example: 1
+                    is_admin:
+                        type: boolean
+                        example: true
+                    roles:
+                        type: array
+                        items:
+                            $ref: '#/components/schemas/Role'
+    Logout:
+        type: object
+        properties:
+            status:
+                type: boolean
+                example: true
+            message:
+                type: string
+                example: "User logged out successfully"
     
