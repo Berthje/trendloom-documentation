@@ -1629,3 +1629,55 @@ components:
         code:
           type: string
           example: "en"
+    Product:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 1
+            name:
+                type: string
+                example: "Air Max 270"
+            description:
+                type: string
+                example: "Step into the future with Nike's Air Max 270 shoes. These shoes offer a blend of comfort and style with their large Air Max unit and sleek design. Perfect for both sports and casual wear, they're a must-have addition to your shoe collection."
+            price:
+                type: string
+                example: "149.99"
+            sku:
+                type: string
+                example: "NIKE-270"
+            status:
+                type: string
+                example: "active"
+            ean_barcode:
+                type: string
+                example: "1234567890123"
+            brand_id:
+                type: integer
+                example: 1
+            category_id:
+                type: integer
+                example: 19
+            code:
+                type: string
+                example: "en"
+            tags:
+                type: string
+                example: "\"[\\\"Nike\\\",\\\"Shoes\\\",\\\"Sportswear\\\"]\""
+            brand:
+                $ref: '#/components/schemas/Brand'
+            category:
+                $ref: '#/components/schemas/Category'
+            sizes:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Size'
+            media:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Media'
+            stock:
+                type: array
+                items:
+                    $ref: '#/components/schemas/Stock'
