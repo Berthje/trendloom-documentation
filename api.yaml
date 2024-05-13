@@ -1,0 +1,1631 @@
+openapi: 3.0.0
+info:
+    title: Trendloom Webshop API
+    version: 1.0.0
+    description: API documentation for the Trendloom webshop
+servers:
+  - url: https://trendloom.test/api/
+    description: 'Local API'
+paths:
+    /translations:
+        get:
+            summary: Get translations
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    nl:
+                                        $ref: '#/components/schemas/Language'
+            tags:
+                - Translations
+
+    /brands:
+        get:
+            summary: Get all brands
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Brand'
+            tags:
+                - Brands
+
+    /brands/{id}:
+        get:
+            summary: Get a brand by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Brand'
+            tags:
+                - Brands
+
+    /brands/{id}/products:
+        get:
+            summary: Get products by brand ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Product'
+            tags:
+                - Brands
+
+    /categories:
+        get:
+            summary: Get all categories
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Category'
+            tags:
+                - Categories
+
+    /categories/{id}:
+        get:
+            summary: Get a category by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Category'
+            tags:
+                - Categories
+
+    /categories/{id}/products:
+        get:
+            summary: Get products by category ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Product'
+            tags:
+                - Categories
+
+    /products:
+        get:
+            summary: Get all products
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Product'
+            tags:
+                - Products
+
+    /products/{id}:
+        get:
+            summary: Get a product by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Product'
+            tags:
+                - Products
+
+    /customers:
+        post:
+            summary: Create a new customer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Customer'
+            tags:
+                - Customers
+
+    /brand-coupons:
+        get:
+            summary: Get all brand coupons
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BrandCoupon'
+            tags:
+                - BrandCoupons
+
+    /brand-coupons/{id}:
+        get:
+            summary: Get a brand coupon by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BrandCoupon'
+            tags:
+                - BrandCoupons
+
+    /brand-languages:
+        get:
+            summary: Get all brand languages
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BrandLanguage'
+            tags:
+                - BrandLanguages
+
+    /brand-languages/{id}:
+        get:
+            summary: Get a brand language by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand language
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BrandLanguage'
+            tags:
+                - BrandLanguages
+
+    /category-coupons:
+        get:
+            summary: Get all category coupons
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryCoupon'
+            tags:
+                - CategoryCoupons
+
+    /category-coupons/{id}:
+        get:
+            summary: Get a category coupon by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryCoupon'
+            tags:
+                - CategoryCoupons
+
+    /category-languages:
+        get:
+            summary: Get all category languages
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryLanguage'
+            tags:
+                - CategoryLanguages
+
+    /category-languages/{id}:
+        get:
+            summary: Get a category language by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category language
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryLanguage'
+            tags:
+                - CategoryLanguages
+
+    /category-media:
+        get:
+            summary: Get all category media
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryMedia'
+            tags:
+                - CategoryMedia
+
+    /category-media/{id}:
+        get:
+            summary: Get a category media by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category media
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryMedia'
+            tags:
+                - CategoryMedia
+
+    /coupons:
+        get:
+            summary: Get all coupons
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Coupon'
+            tags:
+                - Coupons
+
+    /coupons/{id}:
+        get:
+            summary: Get a coupon by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Coupon'
+            tags:
+                - Coupons
+
+    /languages:
+        get:
+            summary: Get all languages
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Language'
+            tags:
+                - Languages
+
+    /languages/{id}:
+        get:
+            summary: Get a language by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the language
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Language'
+            tags:
+                - Languages
+
+    /product-languages:
+        get:
+            summary: Get all product languages
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductLanguage'
+            tags:
+                - ProductLanguages
+
+    /product-languages/{id}:
+        get:
+            summary: Get a product language by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product language
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductLanguage'
+            tags:
+                - ProductLanguages
+
+    /product-media:
+        get:
+            summary: Get all product media
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductMedia'
+            tags:
+                - ProductMedia
+
+    /product-media/{id}:
+        get:
+            summary: Get a product media by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product media
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductMedia'
+            tags:
+                - ProductMedia
+
+    /product-coupons:
+        get:
+            summary: Get all product coupons
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductCoupon'
+            tags:
+                - ProductCoupons
+
+    /product-coupons/{id}:
+        get:
+            summary: Get a product coupon by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductCoupon'
+            tags:
+                - ProductCoupons
+
+    /product-sizes:
+        get:
+            summary: Get all product sizes
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductSize'
+            tags:
+                - ProductSize
+
+    /product-sizes/product/{id}:
+        get:
+            summary: Get all product sizes by product ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductSizeOnly'
+            tags:
+                - ProductSize
+
+    /product-sizes/{id}:
+        get:
+            summary: Get a product size by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product size
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductSize'
+            tags:
+                - ProductSize
+
+    /product-stock:
+        get:
+            summary: Get all product stocks
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductStock'
+            tags:
+                - ProductStock
+
+    /product-stock/{id}:
+        get:
+            summary: Get product stock by product ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ProductStock'
+            tags:
+                - ProductStock
+
+    /register:
+        post:
+            summary: Register a new user
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Authentication
+
+    /login:
+        post:
+            summary: Log in
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Authentication
+
+    /profile:
+        get:
+            summary: Get user profile
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Profile'
+            tags:
+                - Authentication
+
+    /refresh:
+        get:
+            summary: Refresh token
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Authentication
+
+    /logout:
+        get:
+            summary: Log out
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Logout'
+            tags:
+                - Authentication
+
+    /customers/{id}:
+        get:
+            summary: Get a customer by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the customer
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Customer'
+            tags:
+                - Customers
+        put:
+            summary: Update customer details
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the customer
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Customers
+        delete:
+            summary: Delete a customer
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the customer
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Customers
+
+    /customers/{id}/addresses:
+        get:
+            summary: Get addresses by customer ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the customer
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Address'
+            tags:
+                - Customers
+
+    /customers/{id}/orders:
+        get:
+            summary: Get orders by customer ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the customer
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Order'
+            tags:
+                - Customers
+
+    /customers/{id}/wishlist/products:
+        get:
+            summary: Get wishlist products by customer ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the customer
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Product'
+            tags:
+                - Customers
+
+    /addresses/{id}:
+        get:
+            summary: Get an address by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the address
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Address'
+            tags:
+                - Addresses
+        put:
+            summary: Update an address
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the address
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Addresses
+        delete:
+            summary: Delete an address
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the address
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Addresses
+
+    /addresses:
+        post:
+            summary: Create a new address
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Addresses
+
+    /orders/{id}:
+        get:
+            summary: Get an order by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the order
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Order'
+            tags:
+                - Orders
+        put:
+            summary: Update an order
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the order
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Orders
+
+    /orders/{id}/order-items:
+        get:
+            summary: Get order items by order ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the order
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/OrderItem'
+            tags:
+                - Orders
+
+    /orders:
+        post:
+            summary: Create a new order
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Order'
+            tags:
+                - Orders
+
+    /orders/{id}/cancel:
+        put:
+            summary: Cancel an order
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the order
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Orders
+
+    /order-items/{id}:
+        get:
+            summary: Get an order item by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the order item
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/OrderItem'
+            tags:
+                - OrderItems
+
+    /order-items:
+        post:
+            summary: Create a new order item
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - OrderItems
+
+    /order-items/{orderItemId}:
+        put:
+            summary: Update an order item
+            parameters:
+                - name: orderItemId
+                  in: path
+                  required: true
+                  description: ID of the order item
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - OrderItems
+        delete:
+            summary: Delete an order item
+            parameters:
+                - name: orderItemId
+                  in: path
+                  required: true
+                  description: ID of the order item
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - OrderItems
+
+    /wishlists/{id}:
+        get:
+            summary: Get a wishlist by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the wishlist
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Wishlist'
+            tags:
+                - Wishlists
+        put:
+            summary: Update a wishlist
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the wishlist
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful respons
+            tags:
+                - Wishlists
+        delete:
+            summary: Delete a wishlist
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the wishlist
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Wishlists
+
+    /wishlists:
+        post:
+            summary: Create a new wishlist
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Wishlists
+
+    /admin/customers:
+        get:
+            summary: Get all customers (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Customer'
+            tags:
+                - Admin/Customers
+
+    /admin/addresses:
+        get:
+            summary: Get all addresses (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Address'
+            tags:
+                - Admin/Addresses
+
+    /admin/roles:
+        get:
+            summary: Get all roles (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Role'
+            tags:
+                - Admin/Roles
+        post:
+            summary: Create a new role (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Roles
+
+    /admin/roles/{id}:
+        get:
+            summary: Get a role by ID (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the role
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Role'
+            tags:
+                - Admin/Roles
+        put:
+            summary: Update a role (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the role
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Roles
+        delete:
+            summary: Delete a role (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the role
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Roles
+
+    /admin/orders:
+        get:
+            summary: Get all orders (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Order'
+            tags:
+                - Admin/Orders
+
+    /admin/brands:
+        post:
+            summary: Create a new brand (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Brands
+        get:
+            summary: Get all brands (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Brand'
+            tags:
+                - Admin/Brands
+
+    /admin/brands/{id}:
+        put:
+            summary: Update a brand (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Brands
+        delete:
+            summary: Delete a brand (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Brands
+        get:
+            summary: Get a brand by ID (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Brand'
+            tags:
+                - Admin/Brands
+
+    /admin/brand-coupons:
+        post:
+            summary: Create a new brand coupon (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/BrandCoupon'
+            tags:
+                - Admin/BrandCoupons
+
+    /admin/brand-coupons/{id}:
+        put:
+            summary: Update a brand coupon (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/BrandCoupons
+        delete:
+            summary: Delete a brand coupon (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/BrandCoupons
+
+    /admin/brand-languages:
+        post:
+            summary: Create a new brand language (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/BrandLanguages
+
+    /admin/brand-languages/{id}:
+        put:
+            summary: Update a brand language (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand language
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/BrandLanguages
+        delete:
+            summary: Delete a brand language (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand language
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/BrandLanguages
+
+    /admin/categories:
+        post:
+            summary: Create a new category (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Categories
+
+    /admin/categories/{id}:
+        put:
+            summary: Update a category (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Categories
+        delete:
+            summary: Delete a category (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Categories
+
+    /admin/category-coupons/{id}:
+        get:
+            summary: Get a category coupon by ID (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryCoupon'
+            tags:
+                - Admin/CategoryCoupons
+
+    /admin/category-languages:
+        get:
+            summary: Get all category languages (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryLanguage'
+            tags:
+                - Admin/CategoryLanguages
+
+    /admin/category-languages/{id}:
+        get:
+            summary: Get a category language by ID (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category language
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryLanguage'
+            tags:
+                - Admin/CategoryLanguages
+
+    /admin/category-media:
+        get:
+            summary: Get all category media (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryMedia'
+            tags:
+                - Admin/CategoryMedia
+
+    /admin/category-media/{id}:
+        get:
+            summary: Get a category media by ID (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category media
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CategoryMedia'
+            tags:
+                - Admin/CategoryMedia
+
+    /admin/products:
+        post:
+            summary: Create a new product (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Products
+
+    /admin/products/{id}:
+        put:
+            summary: Update a product (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Products
+        delete:
+            summary: Delete a product (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/Products
+
+    /admin/product-sizes:
+        post:
+            summary: Create a new product size (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductSizes
+
+    /admin/product-sizes/{id}:
+        put:
+            summary: Update a product size (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product size
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductSizes
+        delete:
+            summary: Delete a product size (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product size
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductSizes
+
+    /admin/product-media:
+        post:
+            summary: Create a new product media (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductMedia
+
+    /admin/product-media/{id}:
+        put:
+            summary: Update a product media (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product media
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductMedia
+        delete:
+            summary: Delete a product media (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product media
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductMedia
+
+    /admin/product-coupons:
+        post:
+            summary: Create a new product coupon (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductCoupons
+
+    /admin/product-coupons/{id}:
+        put:
+            summary: Update a product coupon (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductCoupons
+        delete:
+            summary: Delete a product coupon (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductCoupons
+
+    /admin/product-stock:
+        post:
+            summary: Create a new product stock (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductStock
+
+    /admin/product-stock/{id}:
+        put:
+            summary: Update a product stock (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product stock
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductStock
+        delete:
+            summary: Delete a product stock (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product stock
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductStock
+
+    /admin/wishlists:
+        get:
+            summary: Get all wishlists (admin only)
+            responses:
+                "200":
+                    description: Successful response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Wishlist'
+            tags:
+                - Admin/Wishlists
+
+components:
+  schemas:
+    Language:
+      type: object
+      additionalProperties:
+        type: string
+      example:
+        free_shipping_offer: "GRATIS VERZENDING OP ALLE T-SHIRTS"
+        explore_summer_styles: "Ontdek stijlen klaar voor de zomerdag"
+        summers_wanted: "GEWILD IN DE ZOMER"
+    Brand:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "Nike"
+        description:
+          type: string
+          example: "Experience the ultimate comfort and style with Nike's innovative sports gear and streetwear."
+        logo_url:
+          type: string
+          example: "/images/logos/nike/logo.webp"
+        language_id:
+          type: integer
+          example: 1
+        code:
+          type: string
+          example: "en"
