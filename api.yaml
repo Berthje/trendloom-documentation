@@ -1157,10 +1157,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/BrandCoupon'
             tags:
                 - Admin/BrandCoupons
 
@@ -1285,10 +1281,6 @@ paths:
             responses:
                 "200":
                     description: Successful response
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/CategoryCoupon'
             tags:
                 - Admin/CategoryCoupons
 
@@ -1640,15 +1632,15 @@ components:
             sizes:
                 type: array
                 items:
-                    $ref: '#/components/schemas/Size'
+                    $ref: '#/components/schemas/ProductSize'
             media:
                 type: array
                 items:
-                    $ref: '#/components/schemas/Media'
+                    $ref: '#/components/schemas/ProductMedia'
             stock:
                 type: array
                 items:
-                    $ref: '#/components/schemas/Stock'
+                    $ref: '#/components/schemas/ProductStock'
     Customer:
         type: object
         properties:
@@ -1759,7 +1751,9 @@ components:
                 type: string
                 example: "en"
             parent:
-                type: 'null'
+                type: integer
+                nullable: true
+                example: null
             media:
                 $ref: '#/components/schemas/CategoryMedia'
     ProductLanguage:
@@ -1901,4 +1895,105 @@ components:
             message:
                 type: string
                 example: "User logged out successfully"
-    
+    Address:
+        type: array
+        items:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    example: 1
+                address:
+                    type: string
+                    example: "123 Main St"
+                city:
+                    type: string
+                    example: "Anytown"
+                state:
+                    type: string
+                    example: "Anystate"
+                zip:
+                    type: string
+                    example: "12345"
+                country:
+                    type: string
+                    example: "USA"
+                type:
+                    type: string
+                    example: "Residential"
+    Order:
+        type: array
+        items:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    example: 1
+                order_date:
+                    type: string
+                    format: date-time
+                    example: "2022-10-10 10:30:00"
+                status:
+                    type: string
+                    example: "shipping"
+                amount_products:
+                    type: integer
+                    example: 5
+                total_price:
+                    type: string
+                    example: "359.95"
+                payment_method:
+                    type: string
+                    example: "Credit Card"
+                shipping_method:
+                    type: string
+                    example: "Fedex"
+                tracking_number:
+                    type: string
+                    example: "1234567890"
+    OrderItem:
+        type: array
+        items:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    example: 1
+                order_id:
+                    type: integer
+                    example: 1
+                product_id:
+                    type: integer
+                    example: 1
+                product_size_id:
+                    type: integer
+                    example: 2
+                product_details:
+                    type: string
+                    example: "{\"id\":1,\"name\":\"Product Name\",\"description\":\"Product Description\",\"price\":\"149.99\",\"sku\":\"PRODUCT-SKU\",\"status\":\"active\",\"ean_barcode\":\"1234567890123\",\"brand_id\":1,\"category_id\":1}"
+                quantity:
+                    type: integer
+                    example: 1
+    Wishlist:
+        type: array
+        items:
+            type: object
+            properties:
+                id:
+                    type: integer
+                    example: 1
+                customer_id:
+                    type: integer
+                    example: 1
+                product_id:
+                    type: integer
+                    example: 1
+    Role:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 1
+            name:
+                type: string
+                example: "user"
