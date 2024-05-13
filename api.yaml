@@ -175,31 +175,6 @@ paths:
             tags:
                 - Customers
 
-    /brand-coupons:
-        get:
-            summary: Get all brand coupons
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - BrandCoupons
-
-    /brand-coupons/{id}:
-        get:
-            summary: Get a brand coupon by ID
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the brand coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - BrandCoupons
-
     /brand-languages:
         get:
             summary: Get all brand languages
@@ -232,31 +207,6 @@ paths:
                                 $ref: '#/components/schemas/BrandLanguage'
             tags:
                 - BrandLanguages
-
-    /category-coupons:
-        get:
-            summary: Get all category coupons
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - CategoryCoupons
-
-    /category-coupons/{id}:
-        get:
-            summary: Get a category coupon by ID
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the category coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - CategoryCoupons
 
     /category-languages:
         get:
@@ -323,31 +273,6 @@ paths:
                                 $ref: '#/components/schemas/CategoryMedia'
             tags:
                 - CategoryMedia
-
-    /coupons:
-        get:
-            summary: Get all coupons
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Coupons
-
-    /coupons/{id}:
-        get:
-            summary: Get a coupon by ID
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Coupons
 
     /languages:
         get:
@@ -447,31 +372,6 @@ paths:
                                 $ref: '#/components/schemas/ProductMedia'
             tags:
                 - ProductMedia
-
-    /product-coupons:
-        get:
-            summary: Get all product coupons
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - ProductCoupons
-
-    /product-coupons/{id}:
-        get:
-            summary: Get a product coupon by ID
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the product coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - ProductCoupons
 
     /product-sizes:
         get:
@@ -976,6 +876,106 @@ paths:
             tags:
                 - Wishlists
 
+    /coupons:
+        get:
+            summary: Get all coupons
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Coupons
+
+    /coupons/{id}:
+        get:
+            summary: Get a coupon by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Coupons
+
+    /brand-coupons:
+        get:
+            summary: Get all brand coupons
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - BrandCoupons
+
+    /brand-coupons/{id}:
+        get:
+            summary: Get a brand coupon by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - BrandCoupons
+
+    /category-coupons:
+        get:
+            summary: Get all category coupons
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - CategoryCoupons
+
+    /category-coupons/{id}:
+        get:
+            summary: Get a category coupon by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - CategoryCoupons
+
+    /product-coupons:
+        get:
+            summary: Get all product coupons
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - ProductCoupons
+
+    /product-coupons/{id}:
+        get:
+            summary: Get a product coupon by ID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - ProductCoupons
+
     /admin/customers:
         get:
             summary: Get all customers (admin only)
@@ -1151,45 +1151,6 @@ paths:
             tags:
                 - Admin/Brands
 
-    /admin/brand-coupons:
-        post:
-            summary: Create a new brand coupon (admin only)
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Admin/BrandCoupons
-
-    /admin/brand-coupons/{id}:
-        put:
-            summary: Update a brand coupon (admin only)
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the brand coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Admin/BrandCoupons
-        delete:
-            summary: Delete a brand coupon (admin only)
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the brand coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Admin/BrandCoupons
-
     /admin/brand-languages:
         post:
             summary: Create a new brand language (admin only)
@@ -1267,22 +1228,6 @@ paths:
                     description: Successful response
             tags:
                 - Admin/Categories
-
-    /admin/category-coupons/{id}:
-        get:
-            summary: Get a category coupon by ID (admin only)
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the category coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Admin/CategoryCoupons
 
     /admin/category-languages:
         get:
@@ -1467,45 +1412,6 @@ paths:
             tags:
                 - Admin/ProductMedia
 
-    /admin/product-coupons:
-        post:
-            summary: Create a new product coupon (admin only)
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Admin/ProductCoupons
-
-    /admin/product-coupons/{id}:
-        put:
-            summary: Update a product coupon (admin only)
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the product coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Admin/ProductCoupons
-        delete:
-            summary: Delete a product coupon (admin only)
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  description: ID of the product coupon
-                  schema:
-                      type: integer
-            responses:
-                "200":
-                    description: Successful response
-            tags:
-                - Admin/ProductCoupons
-
     /admin/product-stock:
         post:
             summary: Create a new product stock (admin only)
@@ -1557,6 +1463,100 @@ paths:
                                 $ref: '#/components/schemas/Wishlist'
             tags:
                 - Admin/Wishlists
+
+    /admin/brand-coupons:
+        post:
+            summary: Create a new brand coupon (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/BrandCoupons
+
+    /admin/brand-coupons/{id}:
+        put:
+            summary: Update a brand coupon (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/BrandCoupons
+        delete:
+            summary: Delete a brand coupon (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the brand coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/BrandCoupons
+
+    /admin/category-coupons/{id}:
+        get:
+            summary: Get a category coupon by ID (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the category coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/CategoryCoupons
+
+    /admin/product-coupons:
+        post:
+            summary: Create a new product coupon (admin only)
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductCoupons
+
+    /admin/product-coupons/{id}:
+        put:
+            summary: Update a product coupon (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductCoupons
+        delete:
+            summary: Delete a product coupon (admin only)
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  description: ID of the product coupon
+                  schema:
+                      type: integer
+            responses:
+                "200":
+                    description: Successful response
+            tags:
+                - Admin/ProductCoupons
 
 components:
   schemas:
