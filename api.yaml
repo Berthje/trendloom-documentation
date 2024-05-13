@@ -1690,4 +1690,62 @@ components:
                 type: array
                 items:
                     $ref: '#/components/schemas/Role'
+    BrandLanguage:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 2
+            brand_id:
+                type: integer
+                example: 1
+            language_id:
+                type: integer
+                example: 2
+            name:
+                type: string
+                example: "Nike"
+            description:
+                type: string
+                example: "Ervaar het ultieme comfort en stijl met de innovatieve sportkleding en streetwear van Nike."
+            brand:
+                $ref: '#/components/schemas/Brand'
+            language:
+                $ref: '#/components/schemas/Language'
+    CategoryLanguage:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 2
+            name:
+                type: string
+                example: "Men"
+            description:
+                type: string
+                example: "Stylish clothing and accessories for men."
+            category_id:
+                type: integer
+                example: 2
+            language_id:
+                type: integer
+                example: 1
+            category:
+                $ref: '#/components/schemas/Category'
+            language:
+                $ref: '#/components/schemas/Language'
+    CategoryMedia:
+        type: object
+        properties:
+            id:
+                type: integer
+                example: 2
+            category_id:
+                type: integer
+                example: 2
+            image_url:
+                type: string
+                example: "/images/categories/men.webp"
+            category:
+                $ref: '#/components/schemas/Category'
     
