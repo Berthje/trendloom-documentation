@@ -1,4 +1,4 @@
-# Project Readme
+# Trendloom
 
 ## How to Deploy Locally
 
